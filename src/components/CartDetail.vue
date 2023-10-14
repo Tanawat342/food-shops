@@ -2,6 +2,9 @@
 
 import { ref } from 'vue';
 import  { useProductStore1 } from '@/stores/counter'
+import  { useProductStore2 } from '@/stores/counter'
+import  { useProductStore3 } from '@/stores/counter'
+import  { useProductStore4 } from '@/stores/counter'
 import { computed, watchEffect } from 'vue'
 import { RouterLink } from 'vue-router';
 
@@ -9,7 +12,10 @@ const name = ref('');
 const address = ref('');
 const phoneNumber = ref('');
 
-const storeProduct = useProductStore1()
+const storeProduct1 = useProductStore1()
+const storeProduct2 = useProductStore2()
+const storeProduct3 = useProductStore3()
+const storeProduct4 = useProductStore4()
 
 
 function formatNumberWithCommas(number) {
@@ -18,36 +24,85 @@ function formatNumberWithCommas(number) {
 }
 
 const totalOverallPrice = computed(() => {
-  return storeProduct.CartList.reduce((total, product) => total + product.totalProductPrice, 0)
+  return storeProduct1.CartList.reduce((total, product) => total + product.totalProductPrice, 0)
+  + storeProduct2.CartList.reduce((total, product) => total + product.totalProductPrice, 0)
+  + storeProduct3.CartList.reduce((total, product) => total + product.totalProductPrice, 0)
+  + storeProduct4.CartList.reduce((total, product) => total + product.totalProductPrice, 0)
 })
 
 watchEffect(() => {
-  for (const product of storeProduct.CartList) {
+  for (const product of storeProduct1.CartList) {
+    product.totalProductPrice = product.quatity * product.PriceCal
+  }
+  for (const product of storeProduct2.CartList) {
+    product.totalProductPrice = product.quatity * product.PriceCal
+  }
+  for (const product of storeProduct3.CartList) {
+    product.totalProductPrice = product.quatity * product.PriceCal
+  }
+  for (const product of storeProduct4.CartList) {
     product.totalProductPrice = product.quatity * product.PriceCal
   }
 })
 
 const removeFromCart = (productId) => {
-  storeProduct.removeFromCart(productId);
+  storeProduct1.removeFromCart(productId);
+  storeProduct2.removeFromCart(productId);
+  storeProduct3.removeFromCart(productId);
+  storeProduct4.removeFromCart(productId);
 };
 
 
 const placeOrder = () => {
-    const hasInvalidQuantity = storeProduct.CartList.some(product => product.quatity <= 0);
+    const hasInvalidQuantity = storeProduct1.CartList.some(product => product.quatity <= 0)
+        || storeProduct2.CartList.some(product => product.quatity <= 0)
+        || storeProduct3.CartList.some(product => product.quatity <= 0)
+        || storeProduct4.CartList.some(product => product.quatity <= 0);
 
     if (hasInvalidQuantity) {
         alert("จำนวนสินค้าต้องมากกว่า 0");
     } else {
-        const orderData = {
-            orderNumber: storeProduct.OrderList.length + 1,
-            CartList: storeProduct.CartList,
-            Total: storeProduct.totalOverallPrice,
+        const orderData1 = {
+            orderNumber: storeProduct1.OrderList.length + 1,
+            CartList: storeProduct1.CartList,
+            Total: storeProduct1.totalOverallPrice,
             name: name.value,
             address: address.value,
             phoneNumber: phoneNumber.value,
         };
+
+        const orderData2 = {
+            orderNumber: storeProduct2.OrderList.length + 1,
+            CartList: storeProduct2.CartList,
+            Total: storeProduct2.totalOverallPrice,
+            name: name.value,
+            address: address.value,
+            phoneNumber: phoneNumber.value,
+        };
+
+        const orderData3 = {
+            orderNumber: storeProduct3.OrderList.length + 1,
+            CartList: storeProduct3.CartList,
+            Total: storeProduct3.totalOverallPrice,
+            name: name.value,
+            address: address.value,
+            phoneNumber: phoneNumber.value,
+        };
+
+        const orderData4 = {
+            orderNumber: storeProduct4.OrderList.length + 1,
+            CartList: storeProduct4.CartList,
+            Total: storeProduct4.totalOverallPrice,
+            name: name.value,
+            address: address.value,
+            phoneNumber: phoneNumber.value,
+        };
+
         alert("สั่งซื้อสำเร็จ! ตรวจสอบรายละเอียดการสั่งซื้อได้ที่ รายการสั่งซื้อ \uD83D\uDE0E \uD83D\uDE0E");
-        storeProduct.addOrder(orderData);
+        storeProduct1.addOrder(orderData1);
+        storeProduct2.addOrder(orderData2);
+        storeProduct3.addOrder(orderData3);
+        storeProduct4.addOrder(orderData4);
     }
 }
 
@@ -56,7 +111,7 @@ const placeOrder = () => {
 <template>
   <div class="container">
     <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
-          <div v-if="storeProduct.CartList.length === 0" class="incompletecart mb-3">
+          <div v-if="storeProduct1.CartList.length === 0 && storeProduct2.CartList.length === 0 && storeProduct3.CartList.length === 0 && storeProduct4.CartList.length === 0" class="incompletecart mb-3">
             <h2>อาหารของคุณ</h2>
             <div class="space-con" >
                 <div class="maincontainer mt-3">
@@ -95,7 +150,7 @@ const placeOrder = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(productData, index) in storeProduct.CartList" :key="index">
+                        <tr v-for="(productData, index) in [...storeProduct1.CartList, ...storeProduct2.CartList, ...storeProduct3.CartList, ...storeProduct4.CartList]" :key="index">
                         <td class="product-grid">
                             <div class="product-image">
                             <img :src="productData.img" alt="" style="border-radius: 10px; width: 100%;">
@@ -111,13 +166,13 @@ const placeOrder = () => {
                                     <div class="butsemicon">
                                     <div class="input-group mb-2">
                                         <span class="input-group-text quatitybuttbgminus">
-                                        <button class="quatitybutt" @click="storeProduct.decrementQuantity(productData)">
+                                        <button class="quatitybutt" @click="storeProduct1.decrementQuantity(productData)">
                                             <img class="imgbutt" src="@/assets/minus.png" alt="minus">
                                         </button>
                                         </span>
                                         <input class="form-control no-spinners" type="number" min="0" v-model="productData.quatity" style="text-align: center; font-weight: bold; " >
                                         <span class="input-group-text quatitybuttbgplus">
-                                        <button class="quatitybutt" @click="storeProduct.incrementQuantity(productData)">
+                                        <button class="quatitybutt" @click="storeProduct1.incrementQuantity(productData)">
                                             <img class="imgbutt" src="@/assets/plus.png" alt="minus">
                                         </button>
                                         </span>

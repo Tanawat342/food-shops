@@ -593,3 +593,74 @@ export const useProductStore4 = defineStore({
   },
 
 })
+
+export const useCombinedStore = defineStore({
+  id: 'combinedStore',
+  state: () => {
+    return {
+      productStore1: useProductStore1().state,
+      productStore2: useProductStore2().state,
+    };
+  },
+  
+  getters: {
+    totalOverallPrice() {
+      return this.CartList.reduce((total, product) => total + product.totalProductPrice, 0);
+    },
+
+  },
+  actions: {
+    incrementQuantity(product) {
+      product.quatity++;
+    },
+    decrementQuantity(product) {
+      if (product.quatity > 0) {
+        product.quatity--;
+      }
+    },
+    addToCart(productData) {
+      const existingProduct = this.CartList.find((product) => product.id === productData.id);
+      if (existingProduct) {
+        if (productData.quatity > 0) {
+          existingProduct.quatity += productData.quatity;
+          existingProduct.totalProductPrice = existingProduct.quatity * existingProduct.PriceCal;
+          alert(`เพิ่ม ${productData.Name} เข้าตะกร้าแล้ว! \ud83d\ude01 `);
+
+        }
+      } else {
+        if (productData.quatity > 0) {
+          const newProduct = { ...productData };
+          newProduct.totalProductPrice = newProduct.quatity * newProduct.PriceCal;
+          this.CartList.push(newProduct);
+          alert(`เพิ่ม ${productData.Name} เข้าตะกร้าแล้ว! \ud83d\ude01`);
+
+        }
+      }
+
+      const productIndex = this.productsList.findIndex((product) => product.id === productData.id);
+      if (productIndex !== -1) {
+        this.productsList[productIndex].quatity = 0;
+      }
+  
+      
+      this.updateTotalOverallPrice();
+      
+    },
+
+    updateTotalOverallPrice() {
+      this.totalOverallPrice = this.CartList.reduce((total, product) => total + product.totalProductPrice, 0);
+    },
+    removeFromCart(productId) {
+      const productIndex = this.CartList.findIndex((product) => product.id === productId);
+      if (productIndex !== -1) {
+        this.CartList.splice(productIndex, 1); 
+        this.updateTotalOverallPrice();
+      }
+    },
+    addOrder(orderData) {
+      this.OrderList.push(orderData);
+      this.CartList = [];
+      this.totalOverallPrice = 0;
+    },
+  },
+});
