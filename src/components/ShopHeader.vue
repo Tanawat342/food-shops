@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router';
       <header class="border-bottom lh-1 py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 pt-1">
-            <RouterLink to="/home" class="link-secondary" href="#">Hew A Pao</RouterLink>
+            <RouterLink to="/" class="link-secondary" href="#">Hew A Pao</RouterLink>
           </div>
           <div class="col-4 d-flex justify-content-end align-items-center">
             <RouterLink to="/cart" class="btn btn-sm btn-outline-secondary ">

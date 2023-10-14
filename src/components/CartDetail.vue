@@ -1,7 +1,7 @@
 <script setup>
 
 import { ref } from 'vue';
-import  { useProductStore } from '@/stores/counter'
+import  { useProductStore1 } from '@/stores/counter'
 import { computed, watchEffect } from 'vue'
 import { RouterLink } from 'vue-router';
 
@@ -9,7 +9,7 @@ const name = ref('');
 const address = ref('');
 const phoneNumber = ref('');
 
-const storeProduct = useProductStore()
+const storeProduct = useProductStore1()
 
 
 function formatNumberWithCommas(number) {
@@ -64,7 +64,7 @@ const placeOrder = () => {
                         <h4 style="color: white; padding-top: 35vh; padding-bottom: 35vh; text-align: center; background-color: #40e87d; border-radius: 30px;">
                             ไม่มีรายการอาหารที่สั่ง
                         </h4>
-                        <RouterLink to="/home" style="text-decoration: none;">
+                        <RouterLink to="/" style="text-decoration: none;">
                             <div class="panelbuttcon">
                                     <button type="button" class="btn btn-secondary" style="margin: auto; margin-bottom: 1%; width: 100%;">หาอะไรทานหน่อยสิ กดที่นี่เลย!</button>
                             </div>
@@ -176,7 +176,7 @@ const placeOrder = () => {
 
 <style scoped>
 
-<style>
+
 .space-con{
     display: flex;
     

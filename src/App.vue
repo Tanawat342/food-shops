@@ -5,7 +5,7 @@ import ShopHeader from './components/ShopHeader.vue'
 <template>
   <ShopHeader/>
 
-  <div class="MainShop">
+  <div class="main">
     <RouterView/>
   </div>
   

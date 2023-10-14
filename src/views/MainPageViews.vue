@@ -1,9 +1,13 @@
 <script setup>
-import ProductView from '../components/ProductView.vue';
+import AllProduct from '../components/Allproduct.vue';
+import SlidePage from '../components/SlidePage.vue';
 </script>
 
 <template>
-    <ProductView/>
+    <div class="container">
+        <SlidePage/>
+        <AllProduct/>
+    </div>
 </template>
 
 <style scoped>
