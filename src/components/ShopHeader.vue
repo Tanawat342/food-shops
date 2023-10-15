@@ -8,7 +8,7 @@ import { RouterLink } from 'vue-router';
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 pt-1">
             <RouterLink to="/">
-              <img class="logo" src="src/assets/LOGO-food.jpg" alt="Hew A Pao Logo"/></RouterLink>
+              <img class="logo" src="https://github.com/Tanawat342/food-shops/blob/main/src/assets/LOGO-food.jpg?raw=true" alt="Hew A Pao Logo"/></RouterLink>
             <RouterLink to="/" class="link-secondary" style="text-decoration: none;">Hew A Pao</RouterLink>
           </div>
           <div class="col-4 d-flex justify-content-end align-items-center">
