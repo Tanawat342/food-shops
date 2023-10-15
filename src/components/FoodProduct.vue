@@ -20,9 +20,11 @@ const addToCart = (productData) => {
         <div class="row row-margin">
             <div class="col-md-3" v-for="(productData, index) in storeProduct.foodsList" :key="index">
                 <div class="card">
-                    <img :src="productData.img" class="card-img-top" alt="productimg">
+                    <RouterLink :to="{ name: 'productDetail', params: { id: productData.id }}">
+                        <img :src="productData.img" class="card-img-top" alt="productimg">
+                    </RouterLink>
                         <div class="card-body">
-                        <RouterLink to="/" class="card-title">{{ productData.Name }}</RouterLink>
+                        <RouterLink :to="{name: 'productDetail', params: {id: productData.id}}" class="card-title">{{ productData.Name }}</RouterLink>
                         <div class="pricetag">
                             <p style="  color: rgb(11, 34, 57);">{{ productData.Price }}</p>
                         </div>
