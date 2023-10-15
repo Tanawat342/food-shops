@@ -72,7 +72,7 @@ const addToCart = () => {
     justify-content: center;
     width: 50em;
     background: #f5f5f5;
-    box-shadow: 5px 5px 15px rgba(186, 126, 126, 0.5);
+    box-shadow: 5px 5px 15px rgba(91, 89, 89, 0.5);
     border-radius: 10px;
     padding: 2em;
     margin-top: 80px;
