@@ -34,7 +34,7 @@ const addToCart = () => {
 <template>
     <div class="container">
         <div class="images">
-            <img :src="`/${product.img}`" alt="" />
+            <img :src="`${product.img}`" class="card-img-top" alt="productimg">
         </div>
         <div class="product">
             <h1>{{ product.Name }}</h1>
