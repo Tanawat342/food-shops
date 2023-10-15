@@ -74,7 +74,8 @@ const addToCart = () => {
     background: #f5f5f5;
     box-shadow: 5px 5px 15px rgba(186, 126, 126, 0.5);
     border-radius: 10px;
-    padding: 1em;
+    padding: 2em;
+    margin-top: 80px;
 }
 
 .images {

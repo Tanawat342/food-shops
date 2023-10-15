@@ -7,7 +7,9 @@ import { RouterLink } from 'vue-router';
       <header class="border-bottom lh-1 py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 pt-1">
-            <RouterLink to="/" class="link-secondary" href="#">Hew A Pao</RouterLink>
+            <RouterLink to="/">
+              <img class="logo" src="src/assets/LOGO-food.jpg" alt="Hew A Pao Logo"/></RouterLink>
+            <RouterLink to="/" class="link-secondary" style="text-decoration: none;">Hew A Pao</RouterLink>
           </div>
           <div class="col-4 d-flex justify-content-end align-items-center">
             <RouterLink to="/cart" class="btn btn-sm btn-outline-secondary ">
@@ -34,4 +36,8 @@ import { RouterLink } from 'vue-router';
   height: 24px;
 }
 
+.logo {
+  width: 60px;
+  margin-right: 15px;
+  }
 </style>
