@@ -12,7 +12,7 @@ export const useProductStore1 = defineStore({
         Des2 : '', 
         Price : '฿69.00',
         PriceCal : 69.00, 
-        img : "../public/IMG/curry.png",
+        img : "../IMG/curry.png",
         quatity : 0 },
       { id : 2,
         Name : 'สเต็ก',
