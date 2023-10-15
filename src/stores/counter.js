@@ -184,7 +184,6 @@ export const useProductStore1 = defineStore({
         if (productData.quatity > 0) {
           existingProduct.quatity += productData.quatity;
           existingProduct.totalProductPrice = existingProduct.quatity * existingProduct.PriceCal;
-          alert(`เพิ่ม ${productData.Name} เข้าตะกร้าแล้ว! \ud83d\ude01 `);
 
         }
       } else {
@@ -192,7 +191,6 @@ export const useProductStore1 = defineStore({
           const newProduct = { ...productData };
           newProduct.totalProductPrice = newProduct.quatity * newProduct.PriceCal;
           this.CartList.push(newProduct);
-          alert(`เพิ่ม ${productData.Name} เข้าตะกร้าแล้ว! \ud83d\ude01`);
 
         }
       }
@@ -322,7 +320,6 @@ export const useProductStore2 = defineStore({
         if (productData.quatity > 0) {
           existingProduct.quatity += productData.quatity;
           existingProduct.totalProductPrice = existingProduct.quatity * existingProduct.PriceCal;
-          alert(`เพิ่ม ${productData.Name} เข้าตะกร้าแล้ว! \ud83d\ude01 `);
 
         }
       } else {
@@ -330,7 +327,6 @@ export const useProductStore2 = defineStore({
           const newProduct = { ...productData };
           newProduct.totalProductPrice = newProduct.quatity * newProduct.PriceCal;
           this.CartList.push(newProduct);
-          alert(`เพิ่ม ${productData.Name} เข้าตะกร้าแล้ว! \ud83d\ude01`);
 
         }
       }
@@ -437,7 +433,6 @@ export const useProductStore3 = defineStore({
         if (productData.quatity > 0) {
           existingProduct.quatity += productData.quatity;
           existingProduct.totalProductPrice = existingProduct.quatity * existingProduct.PriceCal;
-          alert(`เพิ่ม ${productData.Name} เข้าตะกร้าแล้ว! \ud83d\ude01 `);
 
         }
       } else {
@@ -445,7 +440,6 @@ export const useProductStore3 = defineStore({
           const newProduct = { ...productData };
           newProduct.totalProductPrice = newProduct.quatity * newProduct.PriceCal;
           this.CartList.push(newProduct);
-          alert(`เพิ่ม ${productData.Name} เข้าตะกร้าแล้ว! \ud83d\ude01`);
 
         }
       }
@@ -552,7 +546,6 @@ export const useProductStore4 = defineStore({
         if (productData.quatity > 0) {
           existingProduct.quatity += productData.quatity;
           existingProduct.totalProductPrice = existingProduct.quatity * existingProduct.PriceCal;
-          alert(`เพิ่ม ${productData.Name} เข้าตะกร้าแล้ว! \ud83d\ude01 `);
 
         }
       } else {
@@ -560,7 +553,6 @@ export const useProductStore4 = defineStore({
           const newProduct = { ...productData };
           newProduct.totalProductPrice = newProduct.quatity * newProduct.PriceCal;
           this.CartList.push(newProduct);
-          alert(`เพิ่ม ${productData.Name} เข้าตะกร้าแล้ว! \ud83d\ude01`);
 
         }
       }
@@ -624,7 +616,7 @@ export const useCombinedStore = defineStore({
         if (productData.quatity > 0) {
           existingProduct.quatity += productData.quatity;
           existingProduct.totalProductPrice = existingProduct.quatity * existingProduct.PriceCal;
-          alert(`เพิ่ม ${productData.Name} เข้าตะกร้าแล้ว! \ud83d\ude01 `);
+
 
         }
       } else {
@@ -632,7 +624,7 @@ export const useCombinedStore = defineStore({
           const newProduct = { ...productData };
           newProduct.totalProductPrice = newProduct.quatity * newProduct.PriceCal;
           this.CartList.push(newProduct);
-          alert(`เพิ่ม ${productData.Name} เข้าตะกร้าแล้ว! \ud83d\ude01`);
+
 
         }
       }

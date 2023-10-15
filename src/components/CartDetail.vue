@@ -6,7 +6,7 @@ import  { useProductStore2 } from '@/stores/counter'
 import  { useProductStore3 } from '@/stores/counter'
 import  { useProductStore4 } from '@/stores/counter'
 import { computed, watchEffect } from 'vue'
-import { RouterLink } from 'vue-router';
+
 
 const name = ref('');
 const address = ref('');
@@ -98,7 +98,7 @@ const placeOrder = () => {
             phoneNumber: phoneNumber.value,
         };
 
-        alert("สั่งซื้อสำเร็จ! ตรวจสอบรายละเอียดการสั่งซื้อได้ที่ รายการสั่งซื้อ \uD83D\uDE0E \uD83D\uDE0E");
+        alert("สั่งซื้อสำเร็จ! โปรดรอคนขับของเราสักครู่!");
         storeProduct1.addOrder(orderData1);
         storeProduct2.addOrder(orderData2);
         storeProduct3.addOrder(orderData3);
@@ -119,11 +119,6 @@ const placeOrder = () => {
                         <h4 style="color: white; padding-top: 35vh; padding-bottom: 35vh; text-align: center; background-color: #40e87d; border-radius: 30px;">
                             ไม่มีรายการอาหารที่สั่ง
                         </h4>
-                        <RouterLink to="/" style="text-decoration: none;">
-                            <div class="panelbuttcon">
-                                    <button type="button" class="btn btn-secondary" style="margin: auto; margin-bottom: 1%; width: 100%;">หาอะไรทานหน่อยสิ กดที่นี่เลย!</button>
-                            </div>
-                        </RouterLink>
                     </div>
                 </div>
             </div>

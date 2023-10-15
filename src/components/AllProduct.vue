@@ -22,7 +22,7 @@ const addToCart = (productData) => {
                 <div class="card">
                     <img :src="productData.img" class="card-img-top" alt="productimg">
                         <div class="card-body">
-                        <RouterLink to="/" class="card-title">{{ productData.Name }}</RouterLink>
+                        <RouterLink :to="{name: 'productDetail', params: {id: productData.id}}" class="card-title">{{ productData.Name }}</RouterLink>
                         <div class="pricetag">
                             <p style="  color: rgb(11, 34, 57);">{{ productData.Price }}</p>
                         </div>
@@ -48,7 +48,7 @@ const addToCart = (productData) => {
                         </div>
                     </div>
                     <div class="panelbuttcon">
-                        <button type="button" class="btn btn-success" style="margin: auto; margin-bottom: 1%;"  @click="addToCart(productData)">เพิ่มลงในตะกร้า</button>
+                        <button type="button" class="btn btn-success" style="margin: auto; margin-bottom: 1%; background: rgb(62, 61, 61);"  @click="addToCart(productData)">เพิ่มเข้าตะกร้า</button>
                     </div>
                 </div>
             </div>
@@ -65,6 +65,7 @@ const addToCart = (productData) => {
 }
 .panelbuttcon{
     display: flex;
+    
 }
 
 .buttcon{
@@ -73,7 +74,7 @@ const addToCart = (productData) => {
     justify-content: space-between;
     align-items: center;
     width: 70%;
-  
+
 }
 
 .quatitybuttbgminus:hover{
