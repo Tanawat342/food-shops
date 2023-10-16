@@ -31,6 +31,7 @@ const addToCart = () => {
         </div>
         <div class="product">
             <h1>{{ product.Name }}</h1>
+            <p1>{{ product.Des1 }}</p1>
             <h2>{{ product.Price }}</h2>
             <div class="panelbutton">
               <div class="buttcon">

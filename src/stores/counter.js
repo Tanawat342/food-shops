@@ -8,7 +8,9 @@ export const useProductStore1 = defineStore({
     productsList : [
       { id : 1,
         Name : 'แกงกะหรี่',
-        Des1 : '', 
+        Des1 : 'แกงกะหรี่ก้อน 1 กล่อง,เนื้อ,หัวหอม,มันฝรั่ง,แครอท,น้ำมันพืช ',
+        
+
         Price : '฿69',
         PriceCal : 69.00, 
         img : "https://github.com/Tanawat342/food-shops/blob/main/public/IMG/curry.png?raw=true",
