@@ -79,11 +79,11 @@ const addToCart = (productData) => {
 }
 
 .quatitybuttbgminus:hover{
-    background-color: rgb(248, 79, 49);
+    background-color: rgb(228, 107, 86);
 }
 
 .quatitybuttbgplus:hover{
-    background-color: rgb(35, 197, 82);
+    background-color: rgb(87, 207, 121);
 }
 
 
