@@ -20,18 +20,17 @@ const addToCart = (productData) => {
         <div class="row row-margin">
             <div class="col-md-3" v-for="(productData, index) in storeProduct.drinksList" :key="index">
                 <div class="card">
-                    <RouterLink :to="{ name: 'productDetail', params: { id: productData.id }}">
+                    <RouterLink :to="{ name: 'drinkDetail', params: { id: productData.id }}">
                         <img :src="productData.img" class="card-img-top" alt="productimg">
                     </RouterLink>
                         <div class="card-body">
-                        <RouterLink :to="{name: 'productDetail', params: {id: productData.id}}" class="card-title">{{ productData.Name }}</RouterLink>
+                        <RouterLink :to="{name: 'drinkDetail', params: {id: productData.id}}" class="card-title">{{ productData.Name }}</RouterLink>
                         <div class="pricetag">
                             <p style="  color: rgb(11, 34, 57);">{{ productData.Price }}</p>
                         </div>
-                        <p class="card-text">{{ productData.Des1 }}</p>
                     </div>
-                    <div class="panelbuttcon">
-                        <div class="panelbuttcon">
+                    <div class="panelbutton">
+                        <div class="panelbutton">
                             <div class="buttcon">
                                 <div class="input-group mb-2">
                                     <span class="input-group-text quatitybuttbgminus">
@@ -49,8 +48,8 @@ const addToCart = (productData) => {
                             </div>
                         </div>
                     </div>
-                    <div class="panelbuttcon">
-                        <button type="button" class="btn btn-success" style="margin: auto; margin-bottom: 1%;"  @click="addToCart(productData)">เพิ่มลงในตะกร้า</button>
+                    <div class="panelbutton">
+                        <button type="button" class="btn btn-success" style="margin: auto; margin-bottom: 1%; background: rgb(62, 61, 61);"  @click="addToCart(productData)">เพิ่มเข้าตะกร้า</button>
                     </div>
                 </div>
             </div>
@@ -65,8 +64,9 @@ const addToCart = (productData) => {
 .cardframe:hover{
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
-.panelbuttcon{
+.panelbutton{
     display: flex;
+    margin-bottom: 10px;
 }
 
 .buttcon{

@@ -130,7 +130,7 @@ const placeOrder = () => {
             <div class="space-con" >
                 <div class="maincontainer mt-3">
                     <div class="cart-nav">
-                        <h2>ตะกร้าสินค้า</h2>
+                        <h2>รายการอาหาร</h2>
                     </div>
 
                     <div class="bd-example">
@@ -156,7 +156,7 @@ const placeOrder = () => {
                         </td>
                         <td>{{ productData.Price }}</td>
                         <td>
-                            <div class="panelbuttcon">
+                            <div class="panelbutton">
                                 <div class="buttcon">
                                     <div class="butsemicon">
                                     <div class="input-group mb-2">
@@ -212,8 +212,8 @@ const placeOrder = () => {
                                 <span class="input-group-text" id="basic-addon1">เบอร์โทรศัพท์</span>
                                 <input id="num" class="form-control" v-model="phoneNumber" type="text" pattern="[0-9]{10}" maxlength="10" placeholder="กรอกเบอร์โทรศัพท์(10หลัก)" aria-label="tel" aria-describedby="basic-addon1" required="">
                             </div>
-                            <div class="panelbuttcon">
-                                    <input type="submit" class="btn btn-success" style="margin: auto; margin-bottom: 1%;" value="ยืนยันการสั่งซื้อ" >
+                            <div class="panelbutton">
+                                    <input type="submit" class="btn btn-success" style="margin: auto; margin-bottom: 1%; background: rgb(62, 61, 61);" value="ยืนยันการสั่งซื้อ" >
                             </div>
                         </form>
                     </div>
@@ -345,7 +345,8 @@ background-color: rgb(35, 197, 82);
   background-color: rgb(248, 79, 49);
 }
 
-.panelbuttcon{
+.panelbutton{
     display: flex;
+    
 }
 </style>

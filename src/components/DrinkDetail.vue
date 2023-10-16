@@ -1,23 +1,30 @@
 <script setup>
 import { useRoute } from 'vue-router';
-import { useProductStore1 } from '../stores/counter';
+import { useProductStore4 } from '../stores/counter';
 import { computed } from 'vue'; 
 import { RouterLink } from 'vue-router';
 
 
 
 const route = useRoute();
-const storeProduct = useProductStore1();
+const storeProduct = useProductStore4();
 
-const productId = Number(route.params.id);
+const drinkId = Number(route.params.id);
 
 const product = computed(() => {
-  return storeProduct.productsList.find(product => product.id === productId);
+  return storeProduct.drinksList.find(product => product.id === drinkId);
   
 });
 
 const addToCart = () => {
-  storeProduct.addToCart(product.value);
+  storeProduct.addToCart({
+    id: product.value.id,
+    Name: product.value.Name,
+    Price: product.value.Price,
+    PriceCal: product.value.PriceCal,
+    img: product.value.img,
+    quatity: product.value.quatity, 
+  });
 };
 
 </script>
@@ -137,6 +144,7 @@ const addToCart = () => {
 
 .panelbutton{
     display: flex;
+    
 }
 
 .buttcon{

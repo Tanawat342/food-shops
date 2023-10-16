@@ -1,18 +1,18 @@
 <script setup>
 import { useRoute } from 'vue-router';
-import { useProductStore1 } from '../stores/counter';
+import { useProductStore3 } from '../stores/counter';
 import { computed } from 'vue'; 
 import { RouterLink } from 'vue-router';
 
 
 
 const route = useRoute();
-const storeProduct = useProductStore1();
+const storeProduct = useProductStore3();
 
-const productId = Number(route.params.id);
+const sweetId = Number(route.params.id);
 
 const product = computed(() => {
-  return storeProduct.productsList.find(product => product.id === productId);
+  return storeProduct.sweetsList.find(product => product.id === sweetId);
   
 });
 
